@@ -31,6 +31,11 @@ public class author {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "author{" + "UID=" + UID + ", name=" + name + '}';
+    }
     
     
 }

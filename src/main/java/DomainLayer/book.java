@@ -44,6 +44,11 @@ public class book {
     public void setText(String text) {
         this.text = text;
     }
+
+    @Override
+    public String toString() {
+        return "book{" + "UID=" + UID + ", title=" + title + ", text=" + text + '}';
+    }
     
     
 }

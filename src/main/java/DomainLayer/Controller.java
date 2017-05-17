@@ -13,34 +13,38 @@ import java.util.Collection;
  * @author mustafahakimi
  */
 public class Controller {
-    
+
     private DBfacade dbf;
-    
-    public Controller(){
+
+    public Controller() {
         dbf = DBfacade.getInstance();
     }
-    
-    public author getAuthor(String UID){
+
+    public Controller(DBfacade dbf) {
+        this.dbf = dbf;
+    }
+
+    public author getAuthor(String UID) {
         return dbf.getAuthor(UID);
     }
-    
-    public Collection<author> getAllAuthors(){
+
+    public Collection<author> getAllAuthors() {
         return dbf.getAllAuthors();
     }
-    
-    public location getLocation(String UID){
+
+    public location getLocation(String UID) {
         return dbf.getLocation(UID);
     }
-    
-    public Collection<location> getAllLocations(){
+
+    public Collection<location> getAllLocations() {
         return dbf.getAllLocations();
     }
-    
-    public book getBook(String UID){
+
+    public book getBook(String UID) {
         return dbf.getBook(UID);
     }
-    
-    public Collection<book> getAllBooks(){
+
+    public Collection<book> getAllBooks() {
         return dbf.getAllBooks();
     }
 }

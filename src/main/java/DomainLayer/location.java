@@ -54,6 +54,11 @@ public class location {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "location{" + "UID=" + UID + ", latitude=" + latitude + ", longitude=" + longitude + ", name=" + name + '}';
+    }
     
     
 }
