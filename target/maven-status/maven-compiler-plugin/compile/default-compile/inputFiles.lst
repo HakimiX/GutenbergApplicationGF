@@ -1,0 +1,15 @@
+/Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/Service/locationREST.java
+/Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/DomainLayer/book.java
+/Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/Service/bookREST.java
+/Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/DataAccess/DBfacade.java
+/Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/DataAccess/AuthorMapping.java
+/Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/DomainLayer/Controller.java
+/Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/DataAccess/BookMapping.java
+/Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/DataAccess/LocationMapping.java
+/Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/DomainLayer/author.java
+/Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/DomainLayer/location.java
+/Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/DataAccess/DBconnectorMongo.java
+/Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/Run/Main.java
+/Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/Service/authorREST.java
+/Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/DataAccess/DBconnectorMysql.java
+/Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/Service/ApplicationConfig.java
