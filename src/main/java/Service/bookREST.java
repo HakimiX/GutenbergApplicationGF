@@ -6,18 +6,19 @@
 package Service;
 
 import DomainLayer.Controller;
-import DomainLayer.author;
 import DomainLayer.book;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import java.util.Collection;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
@@ -34,6 +35,9 @@ public class bookREST {
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
     Controller c = new Controller();
 
+    private static final String SUCCESS_RESULT = "success";
+    private static final String FAILURE_RESULT = "failure";
+    
     /**
      * Creates a new instance of bookREST
      */
@@ -64,5 +68,32 @@ public class bookREST {
         String jsonStr = gson.toJson(json);
         return jsonStr;
     }
+    
+        
+    
+    @Path("{id}")
+    public String updateBookById(@PathParam("id") String id){
+        c.updateBookById(id, "new value");
+        if (id != null) {
+            return gson.toJson(SUCCESS_RESULT);
+        }
+        return gson.toJson(FAILURE_RESULT);
+    }
 
+    
+    @POST
+    @Produces("application/json")
+    @Consumes("application/json")
+    public String createBook(){
+        book newBook = new book("9002", "testCreated2", "test.txt");
+        boolean result = c.createBook(newBook);
+        
+        if(result == true){
+            return gson.toJson(SUCCESS_RESULT); 
+        }
+            return gson.toJson(FAILURE_RESULT);
+
+    }
+    
+    
 }

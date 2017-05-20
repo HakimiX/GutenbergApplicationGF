@@ -5,6 +5,7 @@
 /Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/DataAccess/AuthorMapping.java
 /Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/DomainLayer/Controller.java
 /Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/DataAccess/BookMapping.java
+/Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/Exceptions/NotFoundException.java
 /Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/DataAccess/LocationMapping.java
 /Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/DomainLayer/author.java
 /Users/mustafahakimi/NetBeansProjects/GutenbergApplicationGF/src/main/java/DomainLayer/location.java

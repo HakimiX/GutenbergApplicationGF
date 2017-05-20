@@ -19,25 +19,26 @@ import java.util.Collection;
  * @author mustafahakimi
  */
 public class LocationMapping {
-    
-     public location getLocation(Connection con, String UID){
-        
-        location returnLocation = new location("","","","");
-        
+
+    // GET
+    public location getLocation(Connection con, String UID) {
+
+        location returnLocation = new location("", "", "", "");
+
         String SQLString1 = "SELECT * FROM location WHERE UID = ?";
-        
+
         PreparedStatement statement = null;
-        
+
         try {
             statement = con.prepareStatement(SQLString1);
             statement.setString(1, UID);
-            
+
             ResultSet rs = statement.executeQuery();
-            while(rs.next()){
-                returnLocation = new location(rs.getString(1), rs.getString(2), rs.getString(3),rs.getString(4));
+            while (rs.next()) {
+                returnLocation = new location(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
 
             }
-            
+
             System.out.println(returnLocation.getName());
         } catch (Exception e) {
             System.out.println("Fail in mapping");
@@ -50,27 +51,28 @@ public class LocationMapping {
                 System.out.println(e.getMessage());
             }
         }
-        
+
         return returnLocation;
     }
     
-     public Collection<location> getAllLocations(Connection con){
-        
+    // GET by id
+    public Collection<location> getAllLocations(Connection con) {
+
         Collection<location> locations = new ArrayList<>();
-        
-        String SQLString1 = 
-                "SELECT * FROM location";
-        
+
+        String SQLString1
+                = "SELECT * FROM location";
+
         PreparedStatement statement = null;
-        
+
         try {
             statement = con.prepareStatement(SQLString1);
-            
+
             ResultSet rs = statement.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 locations.add(new location(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)));
             }
-            
+
         } catch (Exception e) {
             System.out.println("Fail in Mapping");
             System.out.println(e.getMessage());
@@ -82,7 +84,35 @@ public class LocationMapping {
                 System.out.println(e.getMessage());
             }
         }
-        
+
         return locations;
+    }
+
+    // DELETE
+    public void deleteLocationById(Connection con, String UID) {
+
+        String SQLString1
+                = "DELETE FROM location WHERE uid = ?";
+
+        PreparedStatement statement = null;
+
+        try {
+            statement = con.prepareStatement(SQLString1);
+            statement.setString(1, UID);
+
+            statement.executeUpdate();
+
+        } catch (Exception e) {
+            System.out.println("Fail in mapping");
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                System.out.println("Fail in closing connection");
+                System.out.println(e.getMessage());
+            }
+        }
+
     }
 }
