@@ -98,4 +98,12 @@ public class DBfacade {
     public Collection<DTOAuthorBook> getAllBookTitleWithAuthorByCityName(String location){
         return sqlMapping.getAllBookTitleWithAuthorByCityName(con, location);
     }
+    
+    public Collection<DTOAuthorBook> getAllBooksAndCitiesByAuthorName(String author){
+        return sqlMapping.getAllBooksAndCitiesByAuthorName(con, author);
+    }
+    
+    public Collection<DTOAuthorBook> getAllBooksByGeolocation(String latitude, String longitude){
+        return sqlMapping.getAllBooksByGeolocation(con, latitude, longitude);
+    }
 }

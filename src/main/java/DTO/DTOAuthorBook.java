@@ -16,6 +16,12 @@ public class DTOAuthorBook {
         this.author = author;
     }
 
+    public DTOAuthorBook(String title) {
+        this.title = title;
+    }
+    
+    
+
     public String getTitle() {
         return title;
     }
@@ -26,6 +32,10 @@ public class DTOAuthorBook {
 
     public Collection<DTOLocation> getLocations() {
         return locations;
+    }
+    
+    public void setLocations(Collection<DTOLocation> locations){
+        this.locations = locations;
     }
     
     

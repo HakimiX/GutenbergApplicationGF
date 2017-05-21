@@ -80,4 +80,11 @@ public class Controller {
         return dbf.getAllLocationByBookTitle(title);
     }
     
+    public Collection<DTOAuthorBook> getAllBooksAndCitiesByAuthorName(String author){
+        return dbf.getAllBooksAndCitiesByAuthorName(author);
+    }
+    
+    public Collection<DTOAuthorBook> getAllBooksByGeolocation(String latitude, String longitude){
+        return dbf.getAllBooksByGeolocation(latitude, longitude);
+    }
 }

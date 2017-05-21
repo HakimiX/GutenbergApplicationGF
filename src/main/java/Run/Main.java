@@ -37,5 +37,9 @@ public class Main {
         
         // Given a book title, your application plots all cities mentioned in this book onto a map.
         //c.getAllLocationByBookTitle("Industrial Biography");
+        
+        //Jules Verne
+        //c.getAllBooksAndCitiesByAuthorName("Jules Verne");
+        c.getAllBooksByGeolocation("-33.01529", "27.91162");
     }
 }
