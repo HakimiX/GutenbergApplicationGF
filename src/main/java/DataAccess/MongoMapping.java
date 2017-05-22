@@ -16,11 +16,6 @@ public class MongoMapping {
 
     private MongoDatabase connect = DBconnectorMongo.getDBConnection();
 
-    //private DBconnectorMongo connect;
-//    public MongoMapping(){
-//        connect = new DBconnectorMongo();
-//        connect.initiate();
-//    }
     private Block<Document> print() {
         return new Block<Document>() {
             @Override
@@ -30,17 +25,7 @@ public class MongoMapping {
         };
     }
     
-    
-//    public List<DTOAuthorBook> test(final String location) {
-//        List<DTOAuthorBook> result = new ArrayList<>();
-//        FindIterable<Document> documents = connect.getCollection("books").find(eq("locations", location));
-//
-//        for (Document document: documents) {
-//            result.add(new DTOAuthorBook(document.get("title").toString(), document.get("author").toString()));
-//        }
-//
-//        return result;
-//    }
+
 
     public List<DTOAuthorBook> getBooksByCity(String location) {
 

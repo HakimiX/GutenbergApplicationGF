@@ -11,7 +11,7 @@ import DataAccess.MongoMapping;
  *
  * @author mustafahakimi
  */
-public class Run {
+public class Main {
     public static void main(String[] args) {
         
         MongoMapping m = new MongoMapping();
