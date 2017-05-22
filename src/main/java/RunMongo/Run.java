@@ -16,6 +16,9 @@ public class Run {
         
         MongoMapping m = new MongoMapping();
         
-        m.getBooksByCity("London");
+        //m.getBooksByCity("London");
+        //m.getBooksByAuthor("Victor Appleton");
+        m.getLocationByTitle("Tom Swift Among The Diamond Makers");
+
     }
 }
