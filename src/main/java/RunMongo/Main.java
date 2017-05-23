@@ -1,16 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package RunMongo;
 
 import DataAccess.MongoMapping;
 
-/**
- *
- * @author mustafahakimi
- */
+
 public class Main {
     public static void main(String[] args) {
         
@@ -18,7 +11,9 @@ public class Main {
         
         //m.getBooksByCity("London");
         //m.getBooksByAuthor("Victor Appleton");
-        m.getLocationByTitle("Tom Swift Among The Diamond Makers");
-
+        //m.getLocationByTitle("Tom Swift Among The Diamond Makers");
+        //m.getBooksByAuthor("Victor Appleton");
+        //m.getBooksByCity("London");
+        m.getLocationByTitle("The Light Princess");
     }
 }

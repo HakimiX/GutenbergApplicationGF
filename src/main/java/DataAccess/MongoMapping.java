@@ -1,9 +1,9 @@
 package DataAccess;
 
 import DTO.DTOAuthorBook;
+import DTO.DTOLocation;
 import com.mongodb.Block;
 import com.mongodb.MongoClient;
-import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
@@ -24,8 +24,6 @@ public class MongoMapping {
             }
         };
     }
-    
-
 
     public List<DTOAuthorBook> getBooksByCity(String location) {
 
@@ -40,9 +38,8 @@ public class MongoMapping {
 
                 Document doc = cur.next();
 
-                List list = new ArrayList(doc.values());
-
-                System.out.println(list.get(2));
+                collection.add(new DTOAuthorBook(doc.getString("title")));
+                System.out.println(doc.getString("title"));
 
             }
         }
@@ -50,9 +47,10 @@ public class MongoMapping {
         mongoClient.close();
         return collection;
     }
-    
-    public void getBooksByAuthor(String author) {
 
+    public List<DTOAuthorBook> getBooksByAuthor(String author) {
+
+        List<DTOAuthorBook> collection = new ArrayList<>();
         MongoClient mongoClient = new MongoClient("localhost", 27017);
         MongoDatabase database = mongoClient.getDatabase("dbbooks");
 
@@ -63,17 +61,25 @@ public class MongoMapping {
 
                 Document doc = cur.next();
 
-                List list = new ArrayList(doc.values());
+                ArrayList authorArr = (ArrayList) doc.get("author");
+                Document authorDoc = (Document) authorArr.get(0);
+                String _author = authorDoc.getString("name");
+                String title = doc.getString("title");
 
-                System.out.println(list.get(2));
+                collection.add(new DTOAuthorBook(title, _author));
+
+                System.out.println("author: " + _author + " Book title: " + title);
 
             }
         }
 
         mongoClient.close();
+        return collection;
     }
-    
-     public void getLocationByTitle(String title) {
+
+    public List<DTOLocation> getLocationByTitle(String title) {
+
+        List<DTOLocation> listLocations = new ArrayList<>();
 
         MongoClient mongoClient = new MongoClient("localhost", 27017);
         MongoDatabase database = mongoClient.getDatabase("dbbooks");
@@ -85,17 +91,22 @@ public class MongoMapping {
 
                 Document doc = cur.next();
 
-                List list = new ArrayList(doc.values());
+                ArrayList locationArr = (ArrayList) doc.get("locations");
 
-                System.out.println(list.get(4));
+                for (int i = 0; i < locationArr.size(); i++) {
+                    Document locationDoc = (Document) locationArr.get(i);
+                    String locationName = locationDoc.getString("name");
+                    listLocations.add(new DTOLocation(locationName));
+                    System.out.println("location name: " + locationName);
+
+                }
 
             }
         }
 
         mongoClient.close();
+        return listLocations;
+
     }
-     
-
-
 
 }

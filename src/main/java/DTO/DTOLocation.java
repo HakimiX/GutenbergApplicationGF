@@ -22,8 +22,14 @@ public class DTOLocation {
         this.longitude = longitude;
     }
     
+    public DTOLocation(){
+    }
+    
     public DTOLocation(String name){
         this.name = name;
+    }
+
+    public DTOLocation(String string, String _data) {
     }
 
     public String getUID() {

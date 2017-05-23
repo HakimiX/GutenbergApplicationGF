@@ -1,79 +1,98 @@
 package MockTesting;
 
 import DTO.DTOAuthorBook;
+import DTO.DTOLocation;
 import DataAccess.MongoMapping;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
-import javax.sql.DataSource;
-import static org.hamcrest.CoreMatchers.is;
-import org.junit.After;
-import org.junit.AfterClass;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Matchers.any;
+import static org.junit.Assert.*;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+/**
+ *
+ * @author kevinturan
+ */
+@RunWith(Parameterized.class)
 public class MongoMappingMockTest {
 
-    static MongoMapping mapping;
-    static DataSource dataSource;
-    static Connection con;
-    static PreparedStatement statement1;
-    static ResultSet rs;
-    static Statement statement2;
-
-    public MongoMappingMockTest() {
+    public MongoMappingMockTest(String _data) {
+        this._data = _data;
     }
 
-    @BeforeClass
-    public static void setUpClass() throws Exception, SQLException {
-        mapping = mock(MongoMapping.class);
-        dataSource = mock(DataSource.class);
-        con = mock(Connection.class);
-        statement1 = mock(PreparedStatement.class);
-        statement2 = mock(Statement.class);
-        rs = mock(ResultSet.class);
+    private String _data;
+    //private String _location;
 
-        assertNotNull(dataSource);
-        when(con.prepareStatement(any(String.class))).thenReturn(statement1);
-        when(con.createStatement()).thenReturn(statement2);
-        when(dataSource.getConnection()).thenReturn(con);
-
-        when(statement1.executeQuery()).thenReturn(rs);
-        when(con.prepareStatement(any(String.class))).thenReturn(statement1);
+    @Parameters
+    public static Collection<String> data() {
+        return Arrays.asList(new String[]{"test1", "test2", "test3"});
     }
 
-    @AfterClass
-    public static void tearDownClass() {
+
+    @Test
+    public void testGetBooksByCity() {
+
+        
+        System.out.println("getBooksByCity with city: " + _data);
+        List<DTOAuthorBook> listBooks = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++) {
+            listBooks.add(new DTOAuthorBook("title" + i, _data));
+        }
+        
+        MongoMapping mocked = mock(MongoMapping.class);
+        when(mocked.getBooksByCity(_data)).thenReturn(listBooks);
+        
+        for(int i = 0; i < 10; i++){
+            assertEquals(listBooks.iterator().next().toString(), mocked.getBooksByCity(_data).iterator().next().toString());
+        }
+
     }
 
-    @Before
-    public void setUp() {
-    }
+    /**
+     * Test of getBooksByAuthor method, of class MongoMapping.
+     */
+    @Test
+    public void testGetBooksByAuthor() {
 
-    @After
-    public void tearDown() {
-    }
+        System.out.println("getBooksByAuthor with author: " + _data);
 
-//    @Test
-//    public void getBooksByCityTest() throws SQLException {
-//        when(rs.getString("title")).thenReturn("mocked title").thenReturn("mocked title 2");
-//        when(rs.getString("author.name")).thenReturn("mocked author").thenReturn("mocked author 2");
-//        when(rs.next()).thenReturn(true).thenReturn(true).thenReturn(false);
-//        
-//        List<DTOAuthorBook> test = mapping.test("johny");
-//        
-//        assertThat(test.size(), is(2));
-//        assertThat(test.get(0).getTitle(), is("mocked title"));
-//        assertThat(test.get(0).getAuthor(), is("mocked author"));
-//
-//    }
+        List<DTOAuthorBook> listBooks = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            listBooks.add(new DTOAuthorBook("title" + i, _data));
+        }
+
+        MongoMapping mocked = mock(MongoMapping.class);
+        when(mocked.getBooksByAuthor(_data)).thenReturn(listBooks);
+
+        for (int i = 0; i < 10; i++) {
+            assertEquals(listBooks.iterator().next().toString(), mocked.getBooksByAuthor(_data).iterator().next().toString());
+        }
+    }
+    
+    @Test
+    public void testGetLocationByTitle() {
+
+        System.out.println("getLocationBytitle with title: " + _data);
+
+        List<DTOLocation> listBooks = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            listBooks.add(new DTOLocation("title" + i, _data));
+        }
+
+        MongoMapping mocked = mock(MongoMapping.class);
+        when(mocked.getLocationByTitle(_data)).thenReturn(listBooks);
+
+        for (int i = 0; i < 10; i++) {
+            assertEquals(listBooks.iterator().next().toString(), mocked.getLocationByTitle(_data).iterator().next().toString());
+        }
+    }
+    
+
 }
