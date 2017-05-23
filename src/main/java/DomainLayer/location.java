@@ -7,7 +7,7 @@ package DomainLayer;
 
 /**
  *
- * @author mustafahakimi
+ * 
  */
 public class location {
     

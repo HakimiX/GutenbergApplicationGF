@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="12" failures="0" name="MockTesting.SQLMappingTest" time="0.258" errors="0" skipped="0">
+<testsuite tests="20" failures="0" name="MockTesting.SQLMappingTest" time="0.316" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib"/>
@@ -63,7 +63,7 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="MockTesting.SQLMappingTest" name="TestGetAllBooksAndCitiesByAuthorName[0]" time="0.16"/>
+  <testcase classname="MockTesting.SQLMappingTest" name="TestGetAllBooksAndCitiesByAuthorName[0]" time="0.203"/>
   <testcase classname="MockTesting.SQLMappingTest" name="testGetAllBookTitleWithAuthorByCityName[0]" time="0"/>
   <testcase classname="MockTesting.SQLMappingTest" name="testGetAllLocationByBookTitle[0]" time="0"/>
   <testcase classname="MockTesting.SQLMappingTest" name="testGetAllBooksByGeolocation[0]" time="0"/>
@@ -74,5 +74,13 @@
   <testcase classname="MockTesting.SQLMappingTest" name="TestGetAllBooksAndCitiesByAuthorName[2]" time="0.001"/>
   <testcase classname="MockTesting.SQLMappingTest" name="testGetAllBookTitleWithAuthorByCityName[2]" time="0.001"/>
   <testcase classname="MockTesting.SQLMappingTest" name="testGetAllLocationByBookTitle[2]" time="0.001"/>
-  <testcase classname="MockTesting.SQLMappingTest" name="testGetAllBooksByGeolocation[2]" time="0.002"/>
+  <testcase classname="MockTesting.SQLMappingTest" name="testGetAllBooksByGeolocation[2]" time="0.001"/>
+  <testcase classname="MockTesting.SQLMappingTest" name="TestGetAllBooksAndCitiesByAuthorName[3]" time="0.001"/>
+  <testcase classname="MockTesting.SQLMappingTest" name="testGetAllBookTitleWithAuthorByCityName[3]" time="0.001"/>
+  <testcase classname="MockTesting.SQLMappingTest" name="testGetAllLocationByBookTitle[3]" time="0.001"/>
+  <testcase classname="MockTesting.SQLMappingTest" name="testGetAllBooksByGeolocation[3]" time="0.001"/>
+  <testcase classname="MockTesting.SQLMappingTest" name="TestGetAllBooksAndCitiesByAuthorName[4]" time="0"/>
+  <testcase classname="MockTesting.SQLMappingTest" name="testGetAllBookTitleWithAuthorByCityName[4]" time="0"/>
+  <testcase classname="MockTesting.SQLMappingTest" name="testGetAllLocationByBookTitle[4]" time="0.001"/>
+  <testcase classname="MockTesting.SQLMappingTest" name="testGetAllBooksByGeolocation[4]" time="0.001"/>
 </testsuite>

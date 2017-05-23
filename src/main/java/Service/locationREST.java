@@ -24,7 +24,7 @@ import javax.ws.rs.PathParam;
 /**
  * REST Web Service
  *
- * @author mustafahakimi
+ * 
  */
 @Path("location")
 public class locationREST {

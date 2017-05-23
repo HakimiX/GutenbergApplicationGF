@@ -7,7 +7,7 @@ package DTO;
 
 /**
  *
- * @author mustafahakimi
+ *
  */
 public class DTOLocation {
     

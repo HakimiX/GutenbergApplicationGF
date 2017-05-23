@@ -16,7 +16,7 @@ import java.util.Collection;
 
 /**
  *
- * @author mustafahakimi
+ * 
  */
 public class BookMapping {
 

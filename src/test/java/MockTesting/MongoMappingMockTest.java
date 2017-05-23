@@ -15,10 +15,7 @@ import org.junit.runners.Parameterized.Parameters;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-/**
- *
- * @author kevinturan
- */
+
 @RunWith(Parameterized.class)
 public class MongoMappingMockTest {
 
@@ -31,7 +28,7 @@ public class MongoMappingMockTest {
 
     @Parameters
     public static Collection<String> data() {
-        return Arrays.asList(new String[]{"test1", "test2", "test3"});
+        return Arrays.asList(new String[]{"test1", "test2", "test3", "test4", "test5"});
     }
 
 
