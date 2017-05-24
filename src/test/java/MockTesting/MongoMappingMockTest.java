@@ -15,7 +15,6 @@ import org.junit.runners.Parameterized.Parameters;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-
 @RunWith(Parameterized.class)
 public class MongoMappingMockTest {
 
@@ -31,22 +30,20 @@ public class MongoMappingMockTest {
         return Arrays.asList(new String[]{"test1", "test2", "test3", "test4", "test5"});
     }
 
-
     @Test
     public void testGetBooksByCity() {
 
-        
         System.out.println("getBooksByCity with city: " + _data);
         List<DTOAuthorBook> listBooks = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
             listBooks.add(new DTOAuthorBook("title" + i, _data));
         }
-        
+
         MongoMapping mocked = mock(MongoMapping.class);
         when(mocked.getBooksByCity(_data)).thenReturn(listBooks);
-        
-        for(int i = 0; i < 10; i++){
+
+        for (int i = 0; i < 10; i++) {
             assertEquals(listBooks.iterator().next().toString(), mocked.getBooksByCity(_data).iterator().next().toString());
         }
 
@@ -72,7 +69,7 @@ public class MongoMappingMockTest {
             assertEquals(listBooks.iterator().next().toString(), mocked.getBooksByAuthor(_data).iterator().next().toString());
         }
     }
-    
+
     @Test
     public void testGetLocationByTitle() {
 
@@ -90,6 +87,5 @@ public class MongoMappingMockTest {
             assertEquals(listBooks.iterator().next().toString(), mocked.getLocationByTitle(_data).iterator().next().toString());
         }
     }
-    
 
 }
