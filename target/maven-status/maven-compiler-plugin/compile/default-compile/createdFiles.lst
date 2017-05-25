@@ -1,0 +1,12 @@
+DataAccess/BookMapping.class
+DataAccess/AuthorMapping.class
+DomainLayer/author.class
+DomainLayer/book.class
+DomainLayer/location.class
+DomainLayer/Controller.class
+DataAccess/LocationMapping.class
+Service/authorREST.class
+Service/ApplicationConfig.class
+DataAccess/DBfacade.class
+Run/Main.class
+DataAccess/DBconnectorMysql.class
