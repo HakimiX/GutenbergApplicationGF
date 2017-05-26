@@ -96,7 +96,7 @@ public class AuthorMapping {
 
         try {
             statement = con.prepareStatement(SQLString1);
-            statement.setString(1,UID);
+            statement.setString(1, UID);
 
             statement.executeUpdate();
             

@@ -65,7 +65,7 @@ public class DBfacade {
         return locationMapping.getAllLocations(con);
     }
     
-    public void deleteLcoationById(String UID){
+    public void deleteLocationById(String UID){
         locationMapping.deleteLocationById(con, UID);
     }
     

@@ -41,13 +41,14 @@ public class Controller {
     public location getLocation(String UID) {
         return dbf.getLocation(UID);
     }
+    
 
     public Collection<location> getAllLocations() {
         return dbf.getAllLocations();
     }
     
     public void deleteLocationById(String UID){
-        dbf.deleteLcoationById(UID);
+        dbf.deleteLocationById(UID);
     }
 
     public book getBook(String UID) {

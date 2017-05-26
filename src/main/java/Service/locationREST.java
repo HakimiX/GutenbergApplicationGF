@@ -16,10 +16,12 @@ import java.util.Collection;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.core.Response;
 
 /**
  * REST Web Service
@@ -34,9 +36,7 @@ public class locationREST {
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
     Controller c = new Controller();
 
-    /**
-     * Creates a new instance of bookREST
-     */
+
     public locationREST() {
     }
     
@@ -64,5 +64,14 @@ public class locationREST {
         }
         String jsonStr = gson.toJson(json);
         return jsonStr;
+    }
+    
+    @DELETE
+    @Produces("application/json")
+    @Consumes("application/json")
+    @Path("{id}")
+    public Response deleteLocationById(@PathParam("id") String id) {
+        c.deleteLocationById(id);
+        return Response.status(Response.Status.NO_CONTENT).build();
     }
 }

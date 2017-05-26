@@ -11,16 +11,17 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import java.util.Collection;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.core.Response;
 
 /**
  * REST Web Service
@@ -84,15 +85,27 @@ public class bookREST {
     @POST
     @Produces("application/json")
     @Consumes("application/json")
-    public String createBook(){
+    public Response createBook(){
         book newBook = new book("9002", "testCreated2", "test.txt");
-        boolean result = c.createBook(newBook);
+        c.createBook(newBook);  
+        return Response.status(Response.Status.CREATED).build();
         
-        if(result == true){
-            return gson.toJson(SUCCESS_RESULT); 
-        }
-            return gson.toJson(FAILURE_RESULT);
 
+    }
+    
+    @DELETE
+    @Produces("application/json")
+    @Consumes("application/json")
+    @Path("/{id}")
+    public Response deleteBookById(@PathParam("id") String id) {
+
+        c.deleteBookById(id);
+        return Response.status(Response.Status.NO_CONTENT).build();
+//        c.deleteBookById(id);
+//        if (id != null) {
+//            return gson.toJson(SUCCESS_RESULT);
+//        }
+//        return gson.toJson(FAILURE_RESULT);
     }
     
     
